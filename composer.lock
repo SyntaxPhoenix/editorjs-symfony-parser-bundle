@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36585413335c4fc53962a43d6c650e74",
+    "content-hash": "e319b60ef81de51a2ccd813e44e8acfb",
     "packages": [],
     "packages-dev": [
         {
@@ -689,12 +689,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a2712903f99acd2c4ccbef6b46296141a4136a47"
+                "reference": "014b4c58184c41572c9ae4297c73d9efe2bc9bd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a2712903f99acd2c4ccbef6b46296141a4136a47",
-                "reference": "a2712903f99acd2c4ccbef6b46296141a4136a47",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/014b4c58184c41572c9ae4297c73d9efe2bc9bd3",
+                "reference": "014b4c58184c41572c9ae4297c73d9efe2bc9bd3",
                 "shasum": ""
             },
             "require": {
@@ -764,7 +764,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2020-03-09T13:12:32+00:00"
+            "time": "2020-03-11T07:08:11+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1534,7 +1534,9 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.3"
+        "php": ">=7.3",
+        "ext-dom": "*",
+        "ext-json": "*"
     },
     "platform-dev": []
 }
