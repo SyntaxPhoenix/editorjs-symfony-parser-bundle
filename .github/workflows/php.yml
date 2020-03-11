@@ -34,4 +34,7 @@ jobs:
       run: composer run-script test
 
     - name: Coverage by codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
       run: bash <(curl -s https://codecov.io/bash)
