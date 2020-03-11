@@ -1,0 +1,23 @@
+{
+    "name": "durlecode/editorjs-simple-html-parser",
+    "description": "A simple Json to Html parser for EditorJS library",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Durlecode\\EJSParser\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Durlecode\\EJSParser\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.3",
+        "ext-dom": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    }
+}
