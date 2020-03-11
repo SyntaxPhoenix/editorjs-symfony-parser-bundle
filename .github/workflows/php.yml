@@ -33,5 +33,5 @@ jobs:
     - name: Run test suite
       run: composer run-script test
 
-      after_success:
-        - bash <(curl -s https://codecov.io/bash)
+    - name: Coverage by codecov
+      run: bash <(curl -s https://codecov.io/bash)
