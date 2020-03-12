@@ -146,7 +146,7 @@ class Parser
 
         $child = $this->dom->createDocumentFragment();
 
-        $child->appendXML($block->data->text);
+        $child->appendXML(str_replace('<br>', '', $block->data->text));
 
         $node->appendChild($child);
 
@@ -254,7 +254,7 @@ class Parser
 
         $node = $this->dom->createDocumentFragment();
 
-        $node->appendXML(str_replace('&', '&amp;', $block->data->html));
+        $node->appendXML(str_replace(['&', '<br>'], ['&amp;', ''], $block->data->html));
 
         $wrapper->appendChild($node);
 
