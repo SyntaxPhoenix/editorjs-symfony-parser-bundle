@@ -2,8 +2,6 @@
 
 namespace Durlecode\EJSParser;
 
-require __DIR__ . '/../vendor/autoload.php';
-
 use DOMDocument;
 use DOMText;
 use Exception;
