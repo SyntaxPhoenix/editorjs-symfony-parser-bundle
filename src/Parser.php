@@ -2,9 +2,12 @@
 
 namespace Durlecode\EJSParser;
 
+require __DIR__ . '/../vendor/autoload.php';
+
 use DOMDocument;
 use DOMText;
 use Exception;
+use Masterminds\HTML5;
 use StdClass;
 
 class Parser
@@ -20,9 +23,31 @@ class Parser
     private $dom;
 
     /**
+     * @var HTML5
+     */
+    private $html5;
+
+    /**
      * @var string
      */
     private $prefix = "prs";
+
+    public function __construct(string $data)
+    {
+        $this->data = json_decode($data);
+
+        $this->dom = new DOMDocument(1.0, 'UTF-8');
+
+        $this->html5 = new HTML5([
+            'target_document' => $this->dom,
+            'disable_html_ns' => true
+        ]);
+    }
+
+    static function parse($data)
+    {
+        return new self($data);
+    }
 
     /**
      * @return string
@@ -40,10 +65,26 @@ class Parser
         $this->prefix = $prefix;
     }
 
-    public function __construct(string $data)
+    public function getTime()
     {
-        $this->data = json_decode($data);
-        $this->dom = new DOMDocument();
+        return isset($this->data->time) ? $this->data->time : null;
+    }
+
+    public function getVersion()
+    {
+        return isset($this->data->version) ? $this->data->version : null;
+    }
+
+    public function getBlocks()
+    {
+        return isset($this->data->blocks) ? $this->data->blocks : null;
+    }
+
+    public function toHtml()
+    {
+        $this->init();
+
+        return $this->dom->saveHTML();
     }
 
     /**
@@ -144,11 +185,7 @@ class Parser
 
         $node->setAttribute('class', "{$this->prefix}-paragraph");
 
-        $child = $this->dom->createDocumentFragment();
-
-        $child->appendXML(str_replace('<br>', '', $block->data->text));
-
-        $node->appendChild($child);
+        $node->appendChild($this->html5->loadHTMLFragment($block->data->text));
 
         $this->dom->appendChild($node);
     }
@@ -252,11 +289,9 @@ class Parser
     {
         $wrapper = $this->dom->createElement('div');
 
-        $node = $this->dom->createDocumentFragment();
+        $wrapper->setAttribute('class', "{$this->prefix}-raw");
 
-        $node->appendXML(str_replace(['&', '<br>'], ['&amp;', ''], $block->data->html));
-
-        $wrapper->appendChild($node);
+        $wrapper->appendChild($this->html5->loadHTMLFragment($block->data->html));
 
         $this->dom->appendChild($wrapper);
     }
@@ -279,9 +314,7 @@ class Parser
 
         foreach ($block->data->items as $item) {
             $li = $this->dom->createElement('li');
-            $text = $this->dom->createDocumentFragment();
-            $text->appendXML(str_replace('<br>', '', $item));
-            $li->appendChild($text);
+            $li->appendChild($this->html5->loadHTMLFragment($item));
             $list->appendChild($li);
         }
 
@@ -338,43 +371,12 @@ class Parser
 
         $figCaption = $this->dom->createElement('figcaption');
 
-        $captionText = $this->dom->createDocumentFragment();
-
-        $captionText->appendXML(str_replace('<br>', '', $block->data->caption));
-
-        $figCaption->appendChild($captionText);
+        $figCaption->appendChild($this->html5->loadHTMLFragment($block->data->caption));
 
         $figure->appendChild($img);
 
         $figure->appendChild($figCaption);
 
         $this->dom->appendChild($figure);
-    }
-
-    static function parse($data)
-    {
-        return new self($data);
-    }
-
-    public function getTime()
-    {
-        return isset($this->data->time) ? $this->data->time : null;
-    }
-
-    public function getVersion()
-    {
-        return isset($this->data->version) ? $this->data->version : null;
-    }
-
-    public function getBlocks()
-    {
-        return isset($this->data->blocks) ? $this->data->blocks : null;
-    }
-
-    public function toHtml()
-    {
-        $this->init();
-
-        return $this->dom->saveHTML();
     }
 }
