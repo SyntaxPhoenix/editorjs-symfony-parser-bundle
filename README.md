@@ -82,6 +82,9 @@ Return Editor.js content version
 #### `getTime()`
 Return Editor.js content timestamp
 
+#### `getBlocks()`
+Return Editor.js content blocks
+
 ### Generated HTML
 
 ##### Code
@@ -125,7 +128,7 @@ Return Editor.js content timestamp
         <div class="prs-link-url">https://example.com/</div>
     </div>
     <div class="prs-link-img-container">
-        <img src="https://example.com/cat.png">
+        <img src="https://example.com/cat.png" alt="">
     </div>
 </a>
 ```
@@ -164,7 +167,7 @@ Return Editor.js content timestamp
 
 ```html
 <figure class="prs-image">
-    <img src="" class="prs-image-border prs-image-background">
+    <img src="" class="prs-image-border prs-image-background" alt="">
     <figcaption></figcaption>
 </figure>
 ```
@@ -178,5 +181,13 @@ Return Editor.js content timestamp
         <p>Title</p>
         <p>Message</p>
     </div>
+</div>
+```
+
+##### Raw
+
+```html
+<div class="prs-raw">
+    Raw HTML ...
 </div>
 ```
