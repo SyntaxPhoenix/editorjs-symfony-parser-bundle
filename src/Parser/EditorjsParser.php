@@ -73,10 +73,12 @@ class EditorjsParser
             throw new Exception('No Blocks to parse !');
         }
         foreach ($this->data->blocks as $block) {
-            if (in_array($block->type, $this->parser)) {
+            if (array_key_exists($block->type, $this->parser)) {
                 $this->dom->appendChild(
                     $this->parser[$block->type]->parseBlock($this->html5, $this->dom, $block, $this->prefix)
                 );
+            } else {
+                throw new Exception('Not parseable type: ' . $block->type . '!');
             }
         }
     }
