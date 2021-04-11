@@ -27,9 +27,9 @@ class EditorjsParser
     /** @var array<string, EditorjsParserExtension> */
     private array $parser = [];
 
-    public function __construct(array $data)
+    public function __construct(object $data)
     {
-        $this->data = (object) $data;
+        $this->data = $data;
 
         $this->dom = new DOMDocument(1.0, 'UTF-8');
 
