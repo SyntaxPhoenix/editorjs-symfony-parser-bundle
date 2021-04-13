@@ -22,7 +22,7 @@ class EditorjsExtension extends AbstractExtension
     /**
      * @param array $data
      */
-    public function editorjsParse(array $data = []): string
+    public function editorjsParse(object $data): string
     {
         $parser = new EditorjsParser($data);
         return $parser->toHtml();

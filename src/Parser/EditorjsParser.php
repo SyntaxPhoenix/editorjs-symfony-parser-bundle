@@ -6,17 +6,18 @@ use StdClass;
 use Exception;
 use DOMDocument;
 use Masterminds\HTML5;
-use SyntaxPhoenix\EJSParserBundle\Parser\EditorjsParserExtension;
+use SyntaxPhoenix\EJSParserBundle\Parser\Extension\RawParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\CodeParser;
-use SyntaxPhoenix\EJSParserBundle\Parser\Extension\DelimeterParser;
-use SyntaxPhoenix\EJSParserBundle\Parser\Extension\EmbedParser;
-use SyntaxPhoenix\EJSParserBundle\Parser\Extension\HeaderParser;
-use SyntaxPhoenix\EJSParserBundle\Parser\Extension\ImageParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\LinkParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\ListParser;
-use SyntaxPhoenix\EJSParserBundle\Parser\Extension\ParagraphParser;
-use SyntaxPhoenix\EJSParserBundle\Parser\Extension\RawParser;
+use SyntaxPhoenix\EJSParserBundle\Parser\Extension\EmbedParser;
+use SyntaxPhoenix\EJSParserBundle\Parser\Extension\ImageParser;
+use SyntaxPhoenix\EJSParserBundle\Parser\Extension\HeaderParser;
+use SyntaxPhoenix\EJSParserBundle\Parser\EditorjsParserExtension;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\WarningParser;
+use SyntaxPhoenix\EJSParserBundle\Parser\Extension\DelimiterParser;
+use SyntaxPhoenix\EJSParserBundle\Parser\Extension\ParagraphParser;
+use SyntaxPhoenix\EJSParserBundle\Parser\Extension\TableParser;
 
 class EditorjsParser
 {
@@ -40,7 +41,7 @@ class EditorjsParser
 
         $this->parser = [
             'header' => new HeaderParser(),
-            'delimeter' => new DelimeterParser(),
+            'delimiter' => new DelimiterParser(),
             'code' => new CodeParser(),
             'paragraph' => new ParagraphParser(),
             'link' => new LinkParser(),
@@ -48,7 +49,8 @@ class EditorjsParser
             'raw' => new RawParser(),
             'list' => new ListParser(),
             'warning' => new WarningParser(),
-            'simpleImage' => new ImageParser()
+            'simpleImage' => new ImageParser(),
+            'table' => new TableParser()
         ];
     }
 
