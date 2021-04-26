@@ -12,12 +12,13 @@ use SyntaxPhoenix\EJSParserBundle\Parser\Extension\LinkParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\ListParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\EmbedParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\ImageParser;
+use SyntaxPhoenix\EJSParserBundle\Parser\Extension\TableParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\HeaderParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\EditorjsParserExtension;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\WarningParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\DelimiterParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\ParagraphParser;
-use SyntaxPhoenix\EJSParserBundle\Parser\Extension\TableParser;
+use SyntaxPhoenix\EJSParserBundle\Parser\Extension\SimpleImageParser;
 
 class EditorjsParser
 {
@@ -49,7 +50,8 @@ class EditorjsParser
             'raw' => new RawParser(),
             'list' => new ListParser(),
             'warning' => new WarningParser(),
-            'simpleImage' => new ImageParser(),
+            'simpleImage' => new SimpleImageParser(),
+            'image' => new ImageParser(),
             'table' => new TableParser()
         ];
     }
@@ -84,5 +86,4 @@ class EditorjsParser
             }
         }
     }
-    
 }

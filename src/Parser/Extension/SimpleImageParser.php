@@ -7,32 +7,31 @@ use DOMDocument;
 use Masterminds\HTML5;
 use SyntaxPhoenix\EJSParserBundle\Parser\EditorjsParserExtension;
 
-class ImageParser implements EditorjsParserExtension
+class SimpleImageParser implements EditorjsParserExtension
 {
 
     public function parseBlock(HTML5 $html5, DOMDocument $document, object $block, string $prefix): DOMElement
     {
         $figure = $document->createElement('figure');
 
-        $imgAttrs = [
-            "{$prefix}-image"
-        ];
-
-        if ($block->data->withBorder) {
-            $imgAttrs[] = "{$prefix}-image-border";
-        }
-        if ($block->data->withBackground) {
-            $imgAttrs[] = "{$prefix}-image-background";
-        }
-        if ($block->data->stretched) {
-            $imgAttrs[] = "{$prefix}-image-stretched";
-        }
-
-        $figure->setAttribute('class', implode(' ', $imgAttrs));
+        $figure->setAttribute('class', "{$prefix}-simpleimage");
 
         $img = $document->createElement('img');
 
-        $img->setAttribute('src', $block->data->file->url);
+        $imgAttrs = [];
+
+        if ($block->data->withBorder) {
+            $imgAttrs[] = "{$prefix}-simpleimage-border";
+        }
+        if ($block->data->withBackground) {
+            $imgAttrs[] = "{$prefix}-simpleimage-background";
+        }
+        if ($block->data->stretched) {
+            $imgAttrs[] = "{$prefix}-simpleimage-stretched";
+        }
+
+        $img->setAttribute('src', $block->data->url);
+        $img->setAttribute('class', implode(' ', $imgAttrs));
 
         $figCaption = $document->createElement('figcaption');
 
