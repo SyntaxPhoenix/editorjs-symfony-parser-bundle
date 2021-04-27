@@ -1,21 +1,22 @@
  [![codecov](https://codecov.io/gh/Durlecode/editorjs-simple-html-parser/branch/master/graph/badge.svg?token=OKG54EX9C3)](https://codecov.io/gh/Durlecode/editorjs-simple-html-parser)
  [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-# Simple PHP Parser for Editor.js
+# EditorJS-ParserBundle for Symfony
 
-Parse to HTML clean JSON Data from [Editor.js](https://editorjs.io/ "Editor.js Homepage")
+The EditorJS-ParserBundle parses editorjs-configs [Editor.js](https://editorjs.io/ "Editor.js Homepage"). It is designed to be best integrated in Symfony and also offers a Twig-Extension. The bundle is based on [Durlecode/editorjs-simple-html-parser](https://github.com/Durlecode/editorjs-simple-html-parser) and strongly improved by using an object-oriented approach.
 
 ## Installation
 
 ```
-composer require durlecode/editorjs-simple-html-parser
+composer require syntaxphoenix/editorjs-symfony-parser-bundle
 ```
 
 ## Usage
 
 ```php
-use Durlecode\EJSParser\Parser;
+use SyntaxPhoenix\EJSParserBundle\Parser\EditorjsParser;
 
-$html = Parser::parse($data)->toHtml();
+$parser = new EditorjsParser($data);
+$html = $parser->toHtml();
 ```
 
 Where `$data` is the clean JSON data coming from Editor.js *See `$data` example below*
@@ -63,27 +64,14 @@ Package | Key | Main CSS Class
 `@editorjs/paragraph` | `paragraph` | `.prs-paragraph`
 `@editorjs/raw` | `raw` | 
 `@editorjs/simple-image` | `simpleImage` | `.prs-image`
+`@editorjs/image` | `image` | `.prs-image`
 `@editorjs/warning` | `warning` | `.prs-warning`
+`@editorjs/table` | `table` | `.prs-table`
 
 ## Methods 
 
 #### `toHtml()`
 Return generated HTML
-
-#### `setPrefix(string $prefix)`
-Set CSS classes Prefix
-
-#### `getPrefix()`
-Return current prefix
-
-#### `getVersion()`
-Return Editor.js content version
-
-#### `getTime()`
-Return Editor.js content timestamp
-
-#### `getBlocks()`
-Return Editor.js content blocks
 
 ### Generated HTML
 
