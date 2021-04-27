@@ -37,18 +37,6 @@ Where `$data` is the clean JSON data coming from Editor.js *See `$data` example 
 }
 ```
 
-By default this will generate html with css classes with `prs` prefix, so if you want to change it, follow example below
-
-```php
-use Durlecode\EJSParser\Parser;
-
-$parser = new Parser($data);
-
-$parser->setPrefix("cat");
-
-$parsed = $parser->toHtml();
-```
-
 ## Supported Tools
 
 Package | Key | Main CSS Class
