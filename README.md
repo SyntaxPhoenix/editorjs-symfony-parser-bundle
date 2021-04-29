@@ -1,8 +1,12 @@
- [![codecov](https://codecov.io/gh/Durlecode/editorjs-simple-html-parser/branch/master/graph/badge.svg?token=OKG54EX9C3)](https://codecov.io/gh/Durlecode/editorjs-simple-html-parser)
+[![codecov](https://codecov.io/gh/Durlecode/editorjs-simple-html-parser/branch/master/graph/badge.svg?token=OKG54EX9C3)](https://codecov.io/gh/Durlecode/editorjs-simple-html-parser)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FSyntaxPhoenix%2Feditorjs-symfony-parser-bundle.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FSyntaxPhoenix%2Feditorjs-symfony-parser-bundle?ref=badge_shield)
  [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 # EditorJS-ParserBundle for Symfony
 
 The EditorJS-ParserBundle parses editorjs-configs [Editor.js](https://editorjs.io/ "Editor.js Homepage"). It is designed to be best integrated in Symfony and also offers a Twig-Extension. The bundle is based on [Durlecode/editorjs-simple-html-parser](https://github.com/Durlecode/editorjs-simple-html-parser) and strongly improved by using an object-oriented approach.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FSyntaxPhoenix%2Feditorjs-symfony-parser-bundle.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FSyntaxPhoenix%2Feditorjs-symfony-parser-bundle?ref=badge_large)
 
 ## Installation
 
