@@ -1,15 +1,61 @@
- [![codecov](https://codecov.io/gh/Durlecode/editorjs-simple-html-parser/branch/master/graph/badge.svg?token=OKG54EX9C3)](https://codecov.io/gh/Durlecode/editorjs-simple-html-parser)
- [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-# EditorJS-ParserBundle for Symfony
+[![Contributors][contributors-shield]][contributors-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![GPLv3 License][license-shield]][license-url]
+ 
 
-The EditorJS-ParserBundle parses editorjs-configs [Editor.js](https://editorjs.io/ "Editor.js Homepage"). It is designed to be best integrated in Symfony and also offers a Twig-Extension. The bundle is based on [Durlecode/editorjs-simple-html-parser](https://github.com/Durlecode/editorjs-simple-html-parser) and strongly improved by using an object-oriented approach.
 
-## Installation
 
-```
-composer require syntaxphoenix/editorjs-symfony-parser-bundle
-```
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/SyntaxPhoenix/editorjs-symfony-parser-bundle">
+    <img src="https://cdn.syntaxphoenix.com/images/logo.png" alt="Logo" width="192" height="192"/>
+  </a>
 
+  <h3 align="center">EditorJS Symfony Parser Bundle</h3>
+</p>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#usage">Usage</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li> 
+        <li><a href="#supported-plugins">Supported plugins</a></li> 
+        <li><a href="#methods">Methods</a></li>
+      </ul>
+    </li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+The EditorJS-ParserBundle parses editorjs-configs [Editor.js](https://editorjs.io/ "Editor.js Homepage"). It is designed to be best integrated in Symfony and also offers a Twig-Extension. The bundle is based on [Durlecode/editorjs-simple-html-parser](https://github.com/Durlecode/editorjs-simple-html-parser), but strongly improved the parsing by using an object-oriented approach.
+
+
+### Built With
+
+* [editorjs-simple-html-parser](https://github.com/Durlecode/editorjs-simple-html-parser)
+
+
+<!-- GETTING STARTED -->
 ## Usage
 
 ```php
@@ -37,22 +83,32 @@ Where `$data` is the clean JSON data coming from Editor.js *See `$data` example 
 }
 ```
 
-## Supported Tools
+### Installation
+
+```
+composer require syntaxphoenix/editorjs-symfony-parser-bundle
+```
+
+
+## Supported Plugins
 
 Package | Key | Main CSS Class
 --- | --- | ---
-`@editorjs/code` | `code` | `.prs-code`
-`@editorjs/embed` | `embed` | `.prs-embed`
-`@editorjs/delimiter` | `delimiter` | `.prs-delimiter`
-`@editorjs/header` | `header` | `.prs-h{header-level}`
-`@editorjs/link` | `link` | `.prs-link`
-`@editorjs/list` | `list` | `.prs-list`
-`@editorjs/paragraph` | `paragraph` | `.prs-paragraph`
-`@editorjs/raw` | `raw` | 
-`@editorjs/simple-image` | `simpleImage` | `.prs-image`
-`@editorjs/image` | `image` | `.prs-image`
-`@editorjs/warning` | `warning` | `.prs-warning`
-`@editorjs/table` | `table` | `.prs-table`
+<a href="https://github.com/editor-js/code">@editorjs/code</a> | `code` | `.prs-code`
+<a href="https://github.com/editor-js/embed">@editorjs/embed</a> | `embed` | `.prs-embed`
+<a href="https://github.com/editor-js/delimiter">@editorjs/delimiter</a> | `delimiter` | `.prs-delimiter`
+<a href="https://github.com/editor-js/header">@editorjs/header</a> | `header` | `.prs-h{header-level}`
+<a href="https://github.com/editor-js/link">@editorjs/link</a> | `link` | `.prs-link`
+<a href="https://github.com/editor-js/list">@editorjs/list</a> | `list` | `.prs-list`
+<a href="https://github.com/editor-js/paragraph">@editorjs/paragraph</a> | `paragraph` | `.prs-paragraph`
+<a href="https://github.com/editor-js/raw">@editorjs/raw</a> | `raw` | 
+<a href="https://github.com/editor-js/simple-image">@editorjs/simple-image</a> | `simpleImage` | `.prs-image`
+<a href="https://github.com/editor-js/image">@editorjs/image</a> | `image` | `.prs-image`
+<a href="https://github.com/editor-js/warning">@editorjs/warning</a> | `warning` | `.prs-warning`
+<a href="https://github.com/editor-js/table">@editorjs/table</a> | `table` | `.prs-table`
+
+If you want to add a new Parser for a specific editorjs-plugin you can fork the master and make a pull-request. Please also change the readme in that case and add the parser you have edited. 
+
 
 ## Methods 
 
@@ -165,3 +221,52 @@ Return generated HTML
     Raw HTML ...
 </div>
 ```
+
+<!-- ROADMAP -->
+## Roadmap
+
+See the [open issues](https://github.com/SyntaxPhoenix/editorjs-symfony-parser-bundle/issues) for a list of proposed features (and known issues).
+
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the GPLv3 License. See `LICENSE` for more information.
+
+
+
+<!-- CONTACT -->
+## Contact
+
+[@SyntaxPhoenix](https://twitter.com/SyntaxPhoenix) - support@syntaxphoenix.com
+
+Project Link: [https://github.com/SyntaxPhoenix/editorjs-symfony-parser-bundle](https://github.com/SyntaxPhoenix/editorjs-symfony-parser-bundle)
+
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/SyntaxPhoenix/editorjs-symfony-parser-bundle.svg?style=flat-square
+[contributors-url]: https://github.com/SyntaxPhoenix/editorjs-symfony-parser-bundle/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/SyntaxPhoenix/editorjs-symfony-parser-bundle.svg?style=flat-square
+[stars-url]: https://github.com/SyntaxPhoenix/editorjs-symfony-parser-bundle/stargazers
+[issues-shield]: https://img.shields.io/github/issues/SyntaxPhoenix/editorjs-symfony-parser-bundle.svg?style=flat-square
+[issues-url]: https://github.com/SyntaxPhoenix/editorjs-symfony-parser-bundle/issues
+[license-shield]: https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square
+[license-url]: https://www.gnu.org/licenses/gpl-3.0
