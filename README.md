@@ -45,10 +45,8 @@ Package | Key | Main CSS Class
 `@editorjs/embed` | `embed` | `.prs-embed`
 `@editorjs/delimiter` | `delimiter` | `.prs-delimiter`
 `@editorjs/header` | `header` | `.prs-h{header-level}`
-`@editorjs/inline-code` |  | 
 `@editorjs/link` | `link` | `.prs-link`
 `@editorjs/list` | `list` | `.prs-list`
-`@editorjs/marker` |  |
 `@editorjs/paragraph` | `paragraph` | `.prs-paragraph`
 `@editorjs/raw` | `raw` | 
 `@editorjs/simple-image` | `simpleImage` | `.prs-image`
