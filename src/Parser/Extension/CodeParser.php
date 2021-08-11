@@ -8,9 +8,11 @@ use DOMDocument;
 use Masterminds\HTML5;
 use SyntaxPhoenix\EJSParserBundle\Parser\EditorjsParserExtension;
 
+/**
+ * Parse code-Blocks with name (code)
+ */
 class CodeParser implements EditorjsParserExtension
 {
-
     public function parseBlock(HTML5 $html5, DOMDocument $document, object $block, string $prefix): DOMElement
     {
         $wrapper = $document->createElement('div');

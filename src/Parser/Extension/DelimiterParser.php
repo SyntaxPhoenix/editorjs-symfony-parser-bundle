@@ -9,7 +9,6 @@ use SyntaxPhoenix\EJSParserBundle\Parser\EditorjsParserExtension;
 
 class DelimiterParser implements EditorjsParserExtension
 {
-
     public function parseBlock(HTML5 $html5, DOMDocument $document, object $block, string $prefix): DOMElement
     {
         $node = $document->createElement('hr');

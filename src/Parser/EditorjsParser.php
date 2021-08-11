@@ -10,6 +10,7 @@ use SyntaxPhoenix\EJSParserBundle\Parser\Extension\RawParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\CodeParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\LinkParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\ListParser;
+use SyntaxPhoenix\EJSParserBundle\Parser\Extension\AlertParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\EmbedParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\ImageParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\TableParser;
@@ -29,16 +30,11 @@ class EditorjsParser
     /** @var array<string, EditorjsParserExtension> */
     private array $parser = [];
 
-    public function __construct(object $data)
+    public function __construct(?object $data = null)
     {
-        $this->data = $data;
-
-        $this->dom = new DOMDocument(1.0, 'UTF-8');
-
-        $this->html5 = new HTML5([
-            'target_document' => $this->dom,
-            'disable_html_ns' => true
-        ]);
+        if ($data != null) {
+            $this->setData($data);
+        }
 
         $this->parser = [
             'header' => new HeaderParser(),
@@ -52,8 +48,21 @@ class EditorjsParser
             'warning' => new WarningParser(),
             'simpleImage' => new SimpleImageParser(),
             'image' => new ImageParser(),
-            'table' => new TableParser()
+            'table' => new TableParser(),
+            'alert' => new AlertParser()
         ];
+    }
+
+    public function setData(object $data): void
+    {
+        $this->data = $data;
+
+        $this->dom = new DOMDocument(1.0, 'UTF-8');
+
+        $this->html5 = new HTML5([
+            'target_document' => $this->dom,
+            'disable_html_ns' => true
+        ]);
     }
 
     public function toHtml(): string

@@ -106,6 +106,7 @@ Package | Key | Main CSS Class
 <a href="https://github.com/editor-js/image">@editorjs/image</a> | `image` | `.prs-image`
 <a href="https://github.com/editor-js/warning">@editorjs/warning</a> | `warning` | `.prs-warning`
 <a href="https://github.com/editor-js/table">@editorjs/table</a> | `table` | `.prs-table`
+<a href="https://github.com/vishaltelangre/editorjs-alert">@editorjs/table</a> | `table` | `.prs-alert` + `.prs-alert-{type}`
 
 If you want to add a new Parser for a specific editorjs-plugin you can fork the master and make a pull-request. Please also change the readme in that case and add the parser you have edited. 
 
