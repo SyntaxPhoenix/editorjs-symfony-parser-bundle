@@ -33,7 +33,6 @@ class LinkParser implements EditorjsParserExtension
             $image->setAttribute('src', $block->data->meta->image->url);
             $imageContainer->appendChild($image);
             $innerContainer->appendChild($imageContainer);
-            $innerContainer->setAttribute('class', "{$prefix}-link-container-with-img");
         }
 
         if ($hasTitle) {
