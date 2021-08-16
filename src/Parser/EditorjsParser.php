@@ -20,6 +20,7 @@ use SyntaxPhoenix\EJSParserBundle\Parser\Extension\WarningParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\DelimiterParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\ParagraphParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\SimpleImageParser;
+use SyntaxPhoenix\EJSParserBundle\Parser\Extension\YoutubeEmbedParser;
 
 class EditorjsParser
 {
@@ -49,7 +50,8 @@ class EditorjsParser
             'simpleImage' => new SimpleImageParser(),
             'image' => new ImageParser(),
             'table' => new TableParser(),
-            'alert' => new AlertParser()
+            'alert' => new AlertParser(),
+            'youtubeembed' => new YoutubeEmbedParser()
         ];
     }
 
