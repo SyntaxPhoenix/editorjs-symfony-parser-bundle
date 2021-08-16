@@ -223,6 +223,14 @@ Return generated HTML
 </div>
 ```
 
+##### Alert
+
+```html
+<div class="prs-alert prs-alert-{type}">
+ <div>My Text</div>
+</div>
+```
+
 <!-- ROADMAP -->
 ## Roadmap
 
