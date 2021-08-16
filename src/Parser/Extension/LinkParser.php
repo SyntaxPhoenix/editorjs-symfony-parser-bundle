@@ -26,6 +26,16 @@ class LinkParser implements EditorjsParserExtension
         $hasDescription = isset($block->data->meta->description);
         $hasImage = isset($block->data->meta->image);
 
+        if ($hasImage) {
+            $imageContainer = $document->createElement('div');
+            $imageContainer->setAttribute('class', "{$prefix}-link-img-container");
+            $image = $document->createElement('img');
+            $image->setAttribute('src', $block->data->meta->image->url);
+            $imageContainer->appendChild($image);
+            $innerContainer->appendChild($imageContainer);
+            $innerContainer->setAttribute('class', "{$prefix}-link-container-with-img");
+        }
+
         if ($hasTitle) {
             $titleNode = $document->createElement('div');
             $titleNode->setAttribute('class', "{$prefix}-link-title");
@@ -35,7 +45,7 @@ class LinkParser implements EditorjsParserExtension
         }
 
         if ($hasDescription) {
-            $descriptionNode = $document->createElement('div');
+            $descriptionNode = $document->createElement('p');
             $descriptionNode->setAttribute('class', "{$prefix}-link-description");
             $descriptionText = new DOMText($block->data->meta->description);
             $descriptionNode->appendChild($descriptionText);
@@ -49,16 +59,6 @@ class LinkParser implements EditorjsParserExtension
         $innerContainer->appendChild($linkContainer);
 
         $link->appendChild($innerContainer);
-
-        if ($hasImage) {
-            $imageContainer = $document->createElement('div');
-            $imageContainer->setAttribute('class', "{$prefix}-link-img-container");
-            $image = $document->createElement('img');
-            $image->setAttribute('src', $block->data->meta->image->url);
-            $imageContainer->appendChild($image);
-            $link->appendChild($imageContainer);
-            $innerContainer->setAttribute('class', "{$prefix}-link-container-with-img");
-        }
 
         return $link;
     }

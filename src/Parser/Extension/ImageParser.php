@@ -34,13 +34,14 @@ class ImageParser implements EditorjsParserExtension
 
         $img->setAttribute('src', $block->data->file->url);
 
-        $figCaption = $document->createElement('figcaption');
-
-        $figCaption->appendChild($html5->loadHTMLFragment($block->data->caption));
-
         $figure->appendChild($img);
 
-        $figure->appendChild($figCaption);
+        if (!empty($block->data->caption)) {
+            $figCaption = $document->createElement('figcaption');
+            $figCaption->appendChild($html5->loadHTMLFragment($block->data->caption));
+
+            $figure->appendChild($figCaption);
+        }
 
         return $figure;
     }
