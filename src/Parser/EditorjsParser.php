@@ -6,6 +6,7 @@ use StdClass;
 use Exception;
 use DOMDocument;
 use Masterminds\HTML5;
+use SyntaxPhoenix\EJSParserBundle\Exception\NoBlockException;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\RawParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\CodeParser;
 use SyntaxPhoenix\EJSParserBundle\Parser\Extension\LinkParser;
@@ -69,9 +70,13 @@ class EditorjsParser
 
     public function toHtml(): string
     {
-        $this->render();
-
-        return $this->dom->saveHTML();
+        try {
+            $this->render();
+    
+            return $this->dom->saveHTML();
+        } catch (NoBlockException $exception) {
+            return '';
+        }
     }
 
     private function hasBlocks()
@@ -85,7 +90,7 @@ class EditorjsParser
     private function render(): void
     {
         if (!$this->hasBlocks()) {
-            throw new Exception('No Blocks to parse !');
+            throw new NoBlockException('No Blocks to parse !');
         }
         foreach ($this->data->blocks as $block) {
             if (array_key_exists($block->type, $this->parser)) {
