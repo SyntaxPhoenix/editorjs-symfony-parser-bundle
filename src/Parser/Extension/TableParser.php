@@ -23,7 +23,10 @@ class TableParser implements EditorjsParserExtension
         foreach ($block->data->content as $row) {
             $tableRow = $document->createElement('tr');
             foreach ($row as $item) {
-                $tableDefinition = $document->createElement('td', $item);
+                $tableDefinition = $document->createElement('td');
+                if (strlen($item) > 0) {
+                    $tableDefinition->appendChild($html5->loadHTMLFragment($item));
+                }
                 $tableRow->appendChild($tableDefinition);
             }   
             $tableBody->appendChild($tableRow);
