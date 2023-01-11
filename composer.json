@@ -19,9 +19,14 @@
         "masterminds/html5": "^2.7",
         "symfony/flex": "^1.12",
         "symfony/framework-bundle": "^5.0",
-        "twig/twig": "3.3"
+        "twig/twig": "^3.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^8"
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/flex": true
+        }
     }
 }
