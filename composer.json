@@ -17,8 +17,8 @@
         "ext-dom": "*",
         "ext-json": "*",
         "masterminds/html5": "^2.7",
-        "symfony/flex": "^1.12",
-        "symfony/framework-bundle": "^5.0",
+        "symfony/flex": "^1.12 || ^2.0",
+        "symfony/framework-bundle": "^5.0 || ^6.0",
         "twig/twig": "^3.3"
     },
     "require-dev": {
