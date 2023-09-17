@@ -19,17 +19,31 @@ class TableParser implements EditorjsParserExtension
         $table = $document->createElement('table');
 
         $tableBody = $document->createElement('tbody');
+        $tableHead = $document->createElement('thead');
 
-        foreach ($block->data->content as $row) {
+        $withHeadings = isset($block->data->withHeadings) && $block->data->withHeadings === true;
+        
+        foreach ($block->data->content as $i => $row) {
+            $isHeadingRow = $i === 0 && $withHeadings;
+
             $tableRow = $document->createElement('tr');
             foreach ($row as $item) {
-                $tableDefinition = $document->createElement('td');
+                $tableDefinition = $document->createElement($isHeadingRow ? 'th' : 'td');
                 if (strlen($item) > 0) {
                     $tableDefinition->appendChild($html5->loadHTMLFragment($item));
                 }
                 $tableRow->appendChild($tableDefinition);
-            }   
-            $tableBody->appendChild($tableRow);
+            }
+
+            if ($isHeadingRow) {
+                $tableHead->appendChild($tableRow);
+            } else {
+                $tableBody->appendChild($tableRow);
+            }
+        }
+
+        if ($withHeadings) {
+            $table->appendChild($tableHead);
         }
 
         $table->appendChild($tableBody);
